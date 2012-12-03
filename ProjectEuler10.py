@@ -3,11 +3,12 @@ import math
 
 def main():
     primes = [2]
+    sumOfPrimes = 2
 
     startingNumber = 3
-    primeNumberToFind = 10001
+    maxPrimeNumber = 2000000
 
-    while (len(primes)) != primeNumberToFind:
+    while True:
         numToCheck = math.sqrt(startingNumber)
         isPrime = True
         # for prime in primes:
@@ -21,11 +22,15 @@ def main():
                 # print str(startingNumber) + " is not prime"
             n += 1
         if isPrime:
+            if startingNumber > maxPrimeNumber:
+                break
             primes.append(startingNumber)
+            sumOfPrimes += startingNumber
         startingNumber += 2
         # print startingNumber
 
-    print primes[primeNumberToFind - 1]
+    print sumOfPrimes
+    print primes[len(primes) - 1]
 
 if __name__ == "__main__":
     main()
